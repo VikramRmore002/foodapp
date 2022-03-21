@@ -7,19 +7,15 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My FoodApp'),
-      ),
-      body: GridView(
+    return  GridView(
         padding: const EdgeInsets.all(15),
           children: dummyData.map((catdata) => CategoryItem( title: catdata.title,color: catdata.color, id: catdata.id,)).toList(),
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
               childAspectRatio: 3 / 2,
               crossAxisSpacing: 15,
-              mainAxisSpacing: 15)),
-    );
+              mainAxisSpacing: 15),);
+
   }
 
 

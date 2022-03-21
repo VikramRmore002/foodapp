@@ -6,7 +6,6 @@ import '../widgets/mealitem.dart';
 class CatagoryMealScreen extends StatelessWidget {
   static const routeName = "/catagory_item";
 
-  CatagoryMealScreen();
   @override
   Widget build(BuildContext context) {
     final routeArg =
@@ -26,6 +25,7 @@ class CatagoryMealScreen extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (ctx, int index) {
           return MealItem(
+            id: catagorymeals[index].id,
             title: catagorymeals[index].title,
             affordability: catagorymeals[index].affordability,
             complexity: catagorymeals[index].complexity,

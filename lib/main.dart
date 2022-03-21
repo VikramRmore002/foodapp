@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'screens/myhomepagescreen.dart';
+import '/screens/selecteditemlist.dart';
+import '/screens/tab_screen.dart';
 import 'screens/catagory_meal_screen.dart';
 
 void main() {
@@ -33,12 +34,12 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      home: const MyHomePage(),
+      home: TabScreen(),
         initialRoute: "/",
       routes: {
         // "/":(context) => MyHomePage(),
         CatagoryMealScreen.routeName : (context)=> CatagoryMealScreen(),
-
+        SelectedItem.routeName : (context)=> SelectedItem(),
       }
     );
   }

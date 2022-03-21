@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../moduls/meal.dart';
+import '../screens/selecteditemlist.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
 
-  MealItem({
+  const MealItem({
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.affordability,
@@ -47,15 +50,18 @@ class MealItem extends StatelessWidget {
         break;
     }
   }
+ void selctedItem (BuildContext context){
+    Navigator.of(context).pushNamed(SelectedItem.routeName,arguments: id);
 
+ }
 
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => selctedItem(context),
       child: Card(
-        margin: EdgeInsets.all(15),
+        margin: const EdgeInsets.all(15),
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -94,7 +100,7 @@ class MealItem extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[

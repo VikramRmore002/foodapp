@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'moduls/catagory.dart';
 import 'moduls/meal.dart';
 
-   const dummyData =  [
+const dummyData = [
   Category(
     id: 'c1',
     title: 'Italian',
@@ -56,7 +55,7 @@ import 'moduls/meal.dart';
   ),
 ];
 
-const dummyMeal =  [
+const dummyMeal = [
   Meal(
     id: 'm1',
     categories: [
@@ -67,7 +66,7 @@ const dummyMeal =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -100,7 +99,7 @@ const dummyMeal =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     duration: 10,
     ingredients: [
       '1 Slice White Bread',
@@ -129,7 +128,7 @@ const dummyMeal =  [
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',
@@ -160,7 +159,7 @@ const dummyMeal =  [
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
     duration: 60,
     ingredients: [
       '8 Veal Cutlets',
@@ -197,7 +196,7 @@ const dummyMeal =  [
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
+        'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
     duration: 15,
     ingredients: [
       'Arugula',
@@ -232,7 +231,7 @@ const dummyMeal =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
+        'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
     duration: 240,
     ingredients: [
       '4 Sheets of Gelatine',
@@ -267,7 +266,7 @@ const dummyMeal =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
     duration: 20,
     ingredients: [
       '1 1/2 Cups all-purpose Flour',
@@ -298,7 +297,7 @@ const dummyMeal =  [
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
     duration: 35,
     ingredients: [
       '4 Chicken Breasts',
@@ -331,7 +330,7 @@ const dummyMeal =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
+        'https://www.seriouseats.com/thmb/4J_d7qYeYvp5e_ZjAvCi0e-0oGI=/880x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__10__20201003-chocolate-souffle-test2-vicky-wasik-12-e9823310c94c43498695f5c380be52cb.jpg',
     duration: 45,
     ingredients: [
       '1 Teaspoon melted Butter',
@@ -382,7 +381,7 @@ const dummyMeal =  [
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
     imageUrl:
-    'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
     duration: 30,
     ingredients: [
       'White and Green Asparagus',
@@ -406,5 +405,3 @@ const dummyMeal =  [
     isLactoseFree: true,
   ),
 ];
-
-
