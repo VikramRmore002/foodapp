@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/screens/catagory_meal_screen.dart';
 import 'package:foodapp/screens/favorite.dart';
 import 'package:foodapp/screens/myhomepagescreen.dart';
+import 'package:foodapp/widgets/drawer.dart';
 
 class TabScreen extends StatefulWidget {
+  static const routeName = "/Tabscreen";
+
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
+
   int selectedPageIndex = 0;
  // final List<Map<String, Object>>? Tabs = [
  //    {"tab": CatagoryMealScreen(), "title": "Categories"},
@@ -36,7 +40,7 @@ class _TabScreenState extends State<TabScreen> {
       appBar: AppBar(
         title:Text( pages[selectedPageIndex]['title'] ),
       ),
-      drawer: Text("drower"),
+      drawer: MainDrawer(),
       body: pages[selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: SelectedTab,

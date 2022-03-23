@@ -10,6 +10,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function isDeleted;
 
   const MealItem({
     required this.id,
@@ -18,10 +19,11 @@ class MealItem extends StatelessWidget {
     required this.affordability,
     required this.complexity,
     required this.duration,
+    required this.isDeleted,
   });
 
   String get affordabilityText {
-    switch(affordability){
+    switch (affordability) {
       case Affordability.Affordable:
         return "affordable";
         break;
@@ -34,27 +36,25 @@ class MealItem extends StatelessWidget {
     }
   }
 
-
-
-
   String get complexityText {
-    switch(complexity){
+    switch (complexity) {
       case Complexity.Challenging:
-        return"challenging";
+        return "challenging";
         break;
       case Complexity.Hard:
         return "hard";
         break;
       case Complexity.Simple:
-        return"simple";
+        return "simple";
         break;
     }
   }
- void selctedItem (BuildContext context){
-    Navigator.of(context).pushNamed(SelectedItem.routeName,arguments: id);
 
- }
-
+  void selctedItem(BuildContext context) {
+    Navigator.of(context).pushNamed(SelectedItem.routeName, arguments: id).then((value) {
+      isDeleted(value);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,8 @@ class MealItem extends StatelessWidget {
                   child: Container(
                     width: 300,
                     color: Colors.black54,
-                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       title,
                       style: const TextStyle(fontSize: 20, color: Colors.white),
@@ -104,21 +105,39 @@ class MealItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Row(children: <Widget>[
-                    const Icon(Icons.schedule,),
-                    const SizedBox(width: 6,),
-                    Text('$duration min'),
-                  ],),
-                  Row(children: <Widget>[
-                    const Icon(Icons.work,),
-                    const SizedBox(width: 6,),
-                    Text(complexityText),
-                  ],),
-                  Row(children: <Widget>[
-                    const Icon(Icons.attach_money,),
-                    const SizedBox(width: 6,),
-                    Text(affordabilityText),
-                  ],),
+                  Row(
+                    children: <Widget>[
+                      const Icon(
+                        Icons.schedule,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Icon(
+                        Icons.work,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexityText),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Icon(
+                        Icons.attach_money,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(affordabilityText),
+                    ],
+                  ),
                 ],
               ),
             ),
