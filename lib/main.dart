@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:foodapp/dummy_data.dart';
 import 'package:foodapp/screens/Filters.dart';
-import 'package:foodapp/screens/favorite.dart';
-import 'package:foodapp/screens/myhomepagescreen.dart';
-
 import '/screens/selecteditemlist.dart';
 import '/screens/tab_screen.dart';
 import 'moduls/meal.dart';
@@ -29,21 +27,21 @@ class _MyAppState extends State<MyApp> {
   };
  List<Meal> availableMeals = dummyMeal;
 
-void _setFilters(Map<String, bool> filterData) {
+void setFilters(Map<String, bool> filterData) {
   setState(() {
       filtered = filterData;
 
     availableMeals = dummyMeal.where((meal) {
-      if (filtered['gluten'] && !meal.isGlutenFree) {
+      if (filtered['gluten']! && !meal.isGlutenFree) {
         return false;
       }
-      if (filtered['lactose'] && !meal.isLactoseFree) {
+      if (filtered['lactose']! && !meal.isLactoseFree) {
         return false;
       }
-      if (filtered['vegan'] && !meal.isVegan) {
+      if (filtered['vegan']! && !meal.isVegan) {
         return false;
       }
-      if (filtered['vegetarian'] && !meal.isVegetarian) {
+      if (filtered['vegetarian']!  && !meal.isVegetarian) {
         return false;
       }
       return true;
@@ -79,10 +77,10 @@ void _setFilters(Map<String, bool> filterData) {
         ),
         home: TabScreen(),
         routes: {
-          CatagoryMealScreen.routeName: (context) => CatagoryMealScreen(),
+          CatagoryMealScreen.routeName: (context) => CatagoryMealScreen(availableMeals),
           SelectedItem.routeName: (context) => SelectedItem(),
           TabScreen.routeName: (context) => TabScreen(),
-          Filter.routeName: (context) => Filter(),
+          Filter.routeName: (context) => Filter(filtered,setFilters),
         });
   }
 }

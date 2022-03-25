@@ -1,10 +1,15 @@
-import 'dart:html';
+
 
 import 'package:flutter/material.dart';
+import 'package:foodapp/screens/tab_screen.dart';
 import 'package:foodapp/widgets/drawer.dart';
 
 class Filter extends StatefulWidget {
-  const Filter({Key? key}) : super(key: key);
+
+
+  Filter( this.filtered, this.setFilters, {Key? key} ) : super(key: key);
+  Map<String, bool> filtered;
+ final Function setFilters;
   static const routeName = "/Filter";
 
   @override
@@ -16,6 +21,15 @@ class _FilterState extends State<Filter> {
   bool isglucose = false;
   bool isvegeterian = false;
   bool isvegan = false;
+  @override
+  void initState() {
+    islactose = widget.filtered["lactose"]!;
+    isglucose = widget.filtered["gluten"]!;
+    isvegeterian = widget.filtered["vegetarian"]!;
+    isvegan = widget.filtered["vegan"]!;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,8 +93,7 @@ class _FilterState extends State<Filter> {
                 "vegan",
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              subtitle:
-                  const Text(" all meals in this category are vegan "),
+              subtitle: const Text(" all meals in this category are vegan "),
               onChanged: (bool value) {
                 setState(() {
                   isvegan = value;
@@ -88,12 +101,28 @@ class _FilterState extends State<Filter> {
               },
             ),
             Container(
-              margin:const EdgeInsets.all(15.0) ,
+              margin: const EdgeInsets.all(15.0),
               padding: const EdgeInsets.all(15.0),
-              child: ElevatedButton(onPressed: (){},style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.amber)),child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("save changes",style: Theme.of(context).textTheme.subtitle1,),
-              )),
+              child: ElevatedButton(
+                  onPressed: () {
+                    final  selectedFilter = {
+                      "gluten": isglucose,
+                      "lactose": islactose,
+                      "vegan": isvegan,
+                      "vegetarian": isvegeterian,
+                    };
+                    widget.setFilters(selectedFilter);
+                    Navigator.of(context).pushReplacementNamed(TabScreen.routeName);
+                  },
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.amber)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "save changes",
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                  )),
             )
             // SwitchListTile(value: value, onChanged: onChanged)
           ],
